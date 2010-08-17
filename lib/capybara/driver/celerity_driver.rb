@@ -134,11 +134,7 @@ class Capybara::Driver::Celerity < Capybara::Driver::Base
   def browser
     unless @_browser
       require 'celerity'
-      @_browser = ::Celerity::Browser.new(:browser => :firefox, :log_level => :off, :proxy => 'www-cache.reith.bbc.co.uk:80', :noproxy => '.*\.sandbox\.dev\.bbc\.co\.uk')
-      puts @_browser.get_webclient.getProxyConfig().getProxyHost()
-      puts @_browser.get_webclient.getProxyConfig().getProxyPort()
-      puts @_browser.get_webclient.getProxyConfig().shouldBypassProxy('http://pal.sandbox.dev.bbc.co.uk/capybara')
-      puts @_browser.get_webclient.getProxyConfig().shouldBypassProxy('http://www.bbcimg.co.uk/capybara')
+      @_browser = ::Celerity::Browser.new(:browser => :firefox, :log_level => :off, :proxy => 'www-cache.reith.bbc.co.uk:80', :proxy_bypass => '.*\.sandbox\.dev\.bbc\.co\.uk')
     end
 
     @_browser
