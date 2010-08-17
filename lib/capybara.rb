@@ -16,6 +16,7 @@ module Capybara
     attr_accessor :asset_root, :app_host, :run_server, :default_host
     attr_accessor :default_selector, :default_wait_time, :ignore_hidden_elements
     attr_accessor :save_and_open_page_path
+    attr_accessor :proxy_host, :proxy_bypass
 
     ##
     #
@@ -34,6 +35,8 @@ module Capybara
     # [default_selector = :css/:xpath]    Methods which take a selector use the given type by default (Default: CSS)
     # [default_wait_time = Integer]       The number of seconds to wait for asynchronous processes to finish (Default: 2)
     # [ignore_hidden_elements = Boolean]  Whether to ignore hidden elements on the page (Default: false)
+    # [proxy_host = String]               Proxy host and port in the form:  proxy.server.com:8080
+    # [proxy_bypass = String/Array]       Single String or Array of regular expressions matching hosts which should bypass the proxy
     #
     # === DSL Options
     #
